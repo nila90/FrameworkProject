@@ -13,7 +13,7 @@ public class smoketests extends BaseClass {
 	public void checkLogin() {
 
 		objLoginPage = PageFactory.initElements(driver, LoginPage.class);
-		Assert.assertEquals(objLoginPage.checkLogin("Selenium_50", "Abcd@123456"), true);
+		Assert.assertEquals(objLoginPage.checkLogin("testing90", "Abcd@123456"), true);
 
 	}
 
