@@ -57,7 +57,7 @@ public class Helper {
 
 		   Actions actions = new Actions(driver);
 
-		   actions.moveToElement(element).click().perform();
+		   actions.moveToElement(element).click();
 		   
 		   try {
 				Thread.sleep(1000);
