@@ -51,29 +51,20 @@ public class Helper {
 	 * }
 	 */
 
-	public static void CheckElementNotCliakable(WebDriver driver, String path, String presentbrowser) {
+	public static void CheckElementNotCliakable(WebDriver driver, String path) {
 
 		WebElement element = driver.findElement(By.xpath(path));
 
 		System.out.println(path);
 
-		if (presentbrowser.equalsIgnoreCase("Firefox")) {
 
 			Actions actions = new Actions(driver);
 
 			actions.moveToElement(element).click().perform();
 
-		}
+	
 
-		else if (presentbrowser.equalsIgnoreCase("Chrome")) {
-
-			element.click();
-
-		}
-		else {
-			
-			System.out.println("Not Supported this browser");
-		}
+		
 		
 		try {
 			Thread.sleep(1000);

@@ -10,12 +10,11 @@ import com.Project_TestingCRM.pages.LoginPage;
 
 public class smoketests extends BaseClass {
 
-	@Parameters("browser")
 	@Test
 	public void checkLogin() {
 
 		objLoginPage = PageFactory.initElements(driver, LoginPage.class);
-		Assert.assertEquals(objLoginPage.checkLogin("testing90", "Abcd@123456", "browser"), true);
+		Assert.assertEquals(objLoginPage.checkLogin("testing90", "Abcd@123456"), true);
 
 	}
 

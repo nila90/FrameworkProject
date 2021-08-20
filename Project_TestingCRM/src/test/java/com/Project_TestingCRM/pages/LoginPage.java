@@ -25,13 +25,13 @@ public class LoginPage {
 		this.driver = ldriver;
 	}
 
-	public boolean checkLogin(String username, String Password,String actualbrowser) {
+	public boolean checkLogin(String username, String Password) {
 
 		uname.sendKeys(username);
 		pass.sendKeys(Password);
 		
 		
-        Helper.CheckElementNotCliakable(driver,actualbrowser,"//input[@value='Login']");
+        Helper.CheckElementNotCliakable(driver,"//input[@value='Login']");
 		        
   
 		String expectedTitle = "CRMPRO - CRM software for customer relationship management, sales, and support.";
