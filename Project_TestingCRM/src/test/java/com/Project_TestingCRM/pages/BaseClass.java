@@ -57,11 +57,11 @@ public class BaseClass {
 		
 	}
 
-	@AfterClass
+//	@AfterClass
 
-	public void tearDown() {
+	/*public void tearDown() {
 
 		Browserfactory.quitBrowser(driver);
-	}
+	}*/
 
 }
