@@ -16,6 +16,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class Helper {
 
+	static String cb;
+
 	public static void takingScreenshot(WebDriver driver) {
 
 		File src = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
@@ -57,22 +59,38 @@ public class Helper {
 
 		System.out.println(path);
 
+		if (cb.equalsIgnoreCase("Firefox")) {
+
+			System.out.println("Firefox Checking");
 
 			Actions actions = new Actions(driver);
 
-			actions.moveToElement(element).click().perform();
+			actions.moveToElement(element).click().build().perform();
 
-	
+		} else if (cb.equalsIgnoreCase("Chrome")) {
 
-		
-		
+			System.out.println("Chrome Checking");
+
+			element.click();
+		}
+
 		try {
-			Thread.sleep(1000);
+			Thread.sleep(10000);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 
 		System.out.println("Method Calling");
+
+	}
+
+	public static String getCurrentBrowserInstance(String checkbrowserinstance) {
+
+		cb = checkbrowserinstance;
+
+		System.out.println("Check the browser instance : " + cb);
+
+		return cb;
 
 	}
 

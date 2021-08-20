@@ -32,11 +32,19 @@ public class Browserfactory {
 
 		}
 
+		String currentBrowser = browser;
+		
+		System.out.println(currentBrowser);
+		
+		Helper.getCurrentBrowserInstance(currentBrowser);
+		
 		driver.manage().window().maximize();
 		// driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
 
 		driver.get(appURL);
 	//	driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		
+		
 
 		return driver;
 

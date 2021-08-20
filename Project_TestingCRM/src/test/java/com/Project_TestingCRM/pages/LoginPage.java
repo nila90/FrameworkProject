@@ -33,8 +33,10 @@ public class LoginPage {
 		
         Helper.CheckElementNotCliakable(driver,"//input[@value='Login']");
 		        
-  
-		String expectedTitle = "CRMPRO - CRM software for customer relationship management, sales, and support.";
+          
+	//	String expectedTitle = "CRMPRO - CRM software for customer relationship management, sales, and support.";
+
+		String expectedTitle = "CRMPRO";
 
 		String actualTitle = driver.getTitle();
 		
