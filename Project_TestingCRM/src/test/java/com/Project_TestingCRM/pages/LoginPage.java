@@ -25,7 +25,6 @@ public class LoginPage {
 		this.driver = ldriver;
 	}
 
-	@Parameters("browser")
 	public boolean checkLogin(String username, String Password,String actualbrowser) {
 
 		uname.sendKeys(username);
