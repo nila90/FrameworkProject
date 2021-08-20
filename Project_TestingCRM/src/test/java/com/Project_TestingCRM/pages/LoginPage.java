@@ -31,6 +31,7 @@ public class LoginPage {
 		uname.sendKeys(username);
 		pass.sendKeys(Password);
 		
+		
         Helper.CheckElementNotCliakable(driver,actualbrowser,"//input[@value='Login']");
 		        
   
