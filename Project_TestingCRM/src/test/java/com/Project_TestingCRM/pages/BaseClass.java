@@ -22,23 +22,22 @@ public class BaseClass {
 
 	public void setUp() {
 
-	objconfiguration = new Configuration();
+		objconfiguration = new Configuration();
 
 	}
 
-	
-	@Parameters({"browser","urlTobeTested"})
+	@Parameters({ "browser", "urlTobeTested" })
 	@BeforeClass
 
 	public void ApplicationOpen(String browser, String Url) {
 
-		//driver = Browserfactory.startApplication(driver, "Chrome",
-		//"https://classic.crmpro.com/index.html");
+		// driver = Browserfactory.startApplication(driver, "Chrome",
+		// "https://classic.crmpro.com/index.html");
 
 //	driver = Browserfactory.startApplication(driver,objconfiguration.getBrowser(),
-	//	objconfiguration.getBrowserUrl());
+		// objconfiguration.getBrowserUrl());
 
-		driver = Browserfactory.startApplication(driver,browser,Url);
+		driver = Browserfactory.startApplication(driver, browser, Url);
 	}
 
 	@AfterMethod
@@ -46,22 +45,21 @@ public class BaseClass {
 	public void checkResult(ITestResult result) {
 
 		if (result.getStatus() == ITestResult.FAILURE) {
-			
+
 			Helper.takingScreenshot(driver);
 
-		}
-		else {
-			
+		} else {
+
 			System.out.println("Screenshot not captured");
 		}
-		
+
 	}
 
-//	@AfterClass
+	@AfterClass
 
-	/*public void tearDown() {
+	public void tearDown() {
 
 		Browserfactory.quitBrowser(driver);
-	}*/
+	}
 
 }

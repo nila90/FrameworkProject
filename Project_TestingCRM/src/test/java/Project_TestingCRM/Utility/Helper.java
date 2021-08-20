@@ -21,52 +21,68 @@ public class Helper {
 		File src = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 
 		try {
-			FileHandler.copy(src, new File("./Screenshots/Free_CRM_"+takeScreenshotCurrentTimeStamp()+".png"));
+			FileHandler.copy(src, new File("./Screenshots/Free_CRM_" + takeScreenshotCurrentTimeStamp() + ".png"));
 		} catch (Exception e) {
 
-			System.out.println("Unable to take screenshot"+e.getMessage());
-			
+			System.out.println("Unable to take screenshot" + e.getMessage());
+
 		}
 
 	}
 
-	
-	   public static String takeScreenshotCurrentTimeStamp() {
-		
-		
+	public static String takeScreenshotCurrentTimeStamp() {
+
 		String timestamp = new SimpleDateFormat("yyyy_MM_dd__hh_mm_ss").format(new Date());
 
 		return timestamp;
-		
+
 	}
-	   
-	/*   public static void checkWebElementClickable(WebDriver driver, String path) {
-		   
-		   System.out.println("Method Calling");
 
-		   
-		   WebDriverWait w = new WebDriverWait(driver, 1000);
-		   WebElement element = w.until(ExpectedConditions.elementToBeClickable(By.xpath(path)));
-		   element.click();
-		   
-	   }*/
-	   
-	   public static void CheckElementNotCliakable(WebDriver driver, String path) {
-		   
-		   WebElement element = driver.findElement(By.xpath(path));
+	/*
+	 * public static void checkWebElementClickable(WebDriver driver, String path) {
+	 * 
+	 * System.out.println("Method Calling");
+	 * 
+	 * 
+	 * WebDriverWait w = new WebDriverWait(driver, 1000); WebElement element =
+	 * w.until(ExpectedConditions.elementToBeClickable(By.xpath(path)));
+	 * element.click();
+	 * 
+	 * }
+	 */
 
-		   Actions actions = new Actions(driver);
+	public static void CheckElementNotCliakable(WebDriver driver, String path, String presentbrowser) {
 
-		   actions.moveToElement(element).click();
-		   
-		   try {
-				Thread.sleep(1000);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-	   }
-	   
-	   
-	   
-	
+		WebElement element = driver.findElement(By.xpath(path));
+
+		System.out.println(path);
+
+		if (presentbrowser.equalsIgnoreCase("Firefox")) {
+
+			Actions actions = new Actions(driver);
+
+			actions.moveToElement(element).click().perform();
+
+		}
+
+		else if (presentbrowser.equalsIgnoreCase("Chrome")) {
+
+			element.click();
+
+		}
+		else {
+			
+			System.out.println("Not Supported this browser");
+		}
+		
+		try {
+			Thread.sleep(1000);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		System.out.println("Method Calling");
+
+	}
+
 }
